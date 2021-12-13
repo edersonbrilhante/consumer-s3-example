@@ -7,7 +7,7 @@ Here you will find the steps to deploy the infrastructure.
 ### Deploy EKS and S3
 
 ```bash
-cd deployment/terraform/eks/
+cd deployment/terraform/base/
 terraform apply -var-file=variables.tfvars
 export KUBECONFIG=$(pwd)/.kubeconfig_my-cluster
 cd ../../../
