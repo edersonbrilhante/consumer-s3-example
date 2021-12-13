@@ -25,5 +25,4 @@ module "eks" {
       asg_max_size  = 5
     }
   ]
-  manage_aws_auth = false
 }
