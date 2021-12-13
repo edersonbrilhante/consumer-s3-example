@@ -1,0 +1,31 @@
+image:
+  repository: docker.io/edersonbrilhante/consume-s3-example
+  pullPolicy: IfNotPresent
+  tag: "0.1.5"
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext: 
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 10001
+
+service:
+  type: NodePort
+  port: 80
+
+resources: 
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+s3:
+  bucket_name: "consume-s3-example"
+  role_sts_arn: <change>

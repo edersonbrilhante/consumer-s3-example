@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "consume-s3-example.fullname" . }}
+  labels:
+    {{- include "consume-s3-example.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8000
+      protocol: TCP
+      name: https
+  selector:
+    {{- include "consume-s3-example.selectorLabels" . | nindent 4 }}
