@@ -1,5 +1,5 @@
 apiVersion: v2
-name: consume-s3-example
+name: consumer-s3-example
 description: A Helm chart to deploy Consume S3 Example
 
 # A chart can be either an 'application' or a 'library' chart.

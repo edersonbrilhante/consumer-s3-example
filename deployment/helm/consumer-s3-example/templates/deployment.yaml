@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "consume-s3-example.fullname" . }}
+  name: {{ include "consumer-s3-example.fullname" . }}
   labels:
-    {{- include "consume-s3-example.labels" . | nindent 4 }}
+    {{- include "consumer-s3-example.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      {{- include "consume-s3-example.selectorLabels" . | nindent 6 }}
+      {{- include "consumer-s3-example.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "consume-s3-example.selectorLabels" . | nindent 8 }}
+        {{- include "consumer-s3-example.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "consume-s3-example.fullname" . }}
+      serviceAccountName: {{ include "consumer-s3-example.fullname" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -40,5 +40,5 @@ spec:
             - name: S3_BUCKET_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "consume-s3-example.fullname" . }}
+                  name: {{ include "consumer-s3-example.fullname" . }}
                   key: s3_bucket_name

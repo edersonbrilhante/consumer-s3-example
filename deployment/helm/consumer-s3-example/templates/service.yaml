@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "consume-s3-example.fullname" . }}
+  name: {{ include "consumer-s3-example.fullname" . }}
   labels:
-    {{- include "consume-s3-example.labels" . | nindent 4 }}
+    {{- include "consumer-s3-example.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: https
   selector:
-    {{- include "consume-s3-example.selectorLabels" . | nindent 4 }}
+    {{- include "consumer-s3-example.selectorLabels" . | nindent 4 }}

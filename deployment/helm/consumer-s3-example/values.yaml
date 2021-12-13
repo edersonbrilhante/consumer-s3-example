@@ -1,5 +1,5 @@
 image:
-  repository: docker.io/edersonbrilhante/consume-s3-example
+  repository: docker.io/edersonbrilhante/consumer-s3-example
   pullPolicy: IfNotPresent
   tag: "0.1.5"
 
@@ -27,5 +27,5 @@ resources:
     memory: 64Mi
 
 s3:
-  bucket_name: "consume-s3-example"
+  bucket_name: "consumer-s3-example"
   role_sts_arn: <change>

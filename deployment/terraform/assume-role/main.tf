@@ -18,8 +18,8 @@ resource "aws_iam_policy" "s3_reader" {
           "s3:*"
         ],
         "Resource": [
-          "arn:aws:s3:::consume-s3-example",
-          "arn:aws:s3:::consume-s3-example/*"
+          "arn:aws:s3:::consumer-s3-example",
+          "arn:aws:s3:::consumer-s3-example/*"
         ]
       }
     ]
@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "eks_pods" {
 # create a role that can be attached to pods.
 resource "aws_iam_role" "eks_pods" {
   assume_role_policy = data.aws_iam_policy_document.eks_pods.json
-  name               = "consume-s3-example-eks-pods"
+  name               = "consumer-s3-example-eks-pods"
 
 }
 

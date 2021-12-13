@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "consume-s3-example.name" -}}
+{{- define "consumer-s3-example.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "consume-s3-example.fullname" -}}
+{{- define "consumer-s3-example.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "consume-s3-example.chart" -}}
+{{- define "consumer-s3-example.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "consume-s3-example.labels" -}}
-helm.sh/chart: {{ include "consume-s3-example.chart" . }}
-{{ include "consume-s3-example.selectorLabels" . }}
+{{- define "consumer-s3-example.labels" -}}
+helm.sh/chart: {{ include "consumer-s3-example.chart" . }}
+{{ include "consumer-s3-example.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "consume-s3-example.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "consume-s3-example.name" . }}
+{{- define "consumer-s3-example.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "consumer-s3-example.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
